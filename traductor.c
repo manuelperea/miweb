@@ -4,6 +4,8 @@
 
 #define N 50
 
+// Aqui abajo pondremos las funciones.
+
 void anadir();
 void vacio();
 

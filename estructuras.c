@@ -2,30 +2,40 @@
 #include<stdlib.h>
 #include<string.h>
 
+#define N 5
+
 typedef struct{
     int paginas;
     char nombre[50];
     float precio;
 }libro;
 
+libro v[N];
 
 int main(){
     
-    libro JT, HP;
+    int i;
 
-    JT.paginas = 200;
-    strcpy(JT.nombre, "Juego de Tronos");
-    JT.precio = 15.75;
+    for (i=0; i<N; i++){
 
-    HP.paginas = 150;
-    strcpy(HP.nombre, "Harry Potter");
-    HP.precio = 12.99;
+        printf("Introduce el titulo del libro %d: ", i+1);
+        fflush(stdin);
+        fgets(v[i].nombre, 50, stdin);
 
-    printf("El libro %s tiene %d paginas y cuesta %.2f euros.\n", JT.nombre, JT.paginas, JT.precio);
+        printf("Introduce el numero de paginas: ");
+        scanf("%d", &v[i].paginas);
 
-    printf("El libro %s tiene %d paginas y cuesta %.2f euros.\n", HP.nombre, HP.paginas, HP.precio);
+        printf("Introduce el precio: ");
+        scanf("%f",&v[i].precio);
+        fflush(stdin);
+    }
 
-    printf("El coste total de la compra asciende a: %.2f euros", JT.precio+HP.precio);
+    for (i=0; i<N; i++){
+        printf("Titulo del libro %d: %s\n", i+1, v[i].nombre);
+        printf("Numero de paginas: %d.\n", v[i].paginas);
+        printf("Precio: %.2f", v[i].precio);
+
+    }
 
 
     return 0;
